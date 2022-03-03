@@ -1,0 +1,126 @@
+body {
+  background: #666;
+}
+
+.container {
+  padding-top: 5rem;
+  width: 880px;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 6px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+$btnColor: #42b983;
+
+.btn {
+  color: $btnColor;
+  position: relative;
+  border-radius: 99px;
+  border: 1px solid $btnColor;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  outline: none;
+  background: #fff;
+  transition: all 0.22s;
+  cursor: pointer;
+  margin-right: 1rem;
+
+  &.primary {
+    background: $btnColor;
+    color: #fff;
+  }
+
+  &:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+
+  .preview-image {
+    position: relative;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    overflow: hidden;
+
+    &:hover {
+      .preview-remove {
+        opacity: 1;
+      }
+
+      .preview-info {
+        bottom: 3px;
+      }
+    }
+
+    & img {
+      width: 180px;
+      height: auto;
+    }
+
+    .preview-remove {
+      opacity: 0;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: bold;
+      background: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.22s;
+    }
+
+    .preview-info {
+      height: 25px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -30px;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      transition: bottom 0.22s;
+
+      .preview-info-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: $btnColor;
+        text-align: center;
+        transition: width 0.22s;
+        width: 30%;
+      }
+    }
+
+    &.removing {
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+  }
+}
